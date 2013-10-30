@@ -10,13 +10,13 @@ Config.debug = false;
 // data configuration
 Config.data = {};
 
-Config.data.topicsUrl = "data/topics.json";
+Config.data.topicsUrl = "data/topicszh.json";
 
 Config.data.layersUrl = function(topicName) {
   return "data/layers/layers_" + topicName + ".json";
 }
 
-Config.data.initialTopic = "geo_admin_pk";
+Config.data.initialTopic = "BASISKARTEZH";
 
 // feature info
 Config.featureInfo = {};
@@ -46,24 +46,24 @@ Config.featureInfo.url = function(topicName, coordinate, layers) {
   }
 }
 
-/* Configuration for Mapfish Appserver:
+//Configuration for Mapfish Appserver:
 Config.featureInfo.format = 'text/html';
 Config.featureInfo.useWMSGetFeatureInfo = false;
 Config.featureInfo.url = function(topicName, coordinate, layers) {
-  return "/topics/query?" + $.param({
+  return "http://maps.zh.ch/topics/query?" + $.param({
     bbox: [coordinate[0], coordinate[1], coordinate[0], coordinate[1]].join(','),
-    infoQuery: '{"queryTopics":["topic":"' + topicName + '","divCls":"legmain","layers":"' + layers.join(',') + '"}]}',
+    infoQuery: '{"queryTopics":[{"topic":"' + topicName + '","divCls":"legmain","layers":"' + layers.join(',') + '"}]}',
     mobile: 1
   });
 }
 // add styles for feature info results HTML to custom.css
-*/
+
 
 // map configuration
 Config.map = {};
 
 // ol.Extent
-Config.map.extent = [420000, 900000, 30000, 350000];
+Config.map.extent = [668000, 718000, 223000, 290000];
 
 // ol.View2DOptions
 Config.map.viewOptions = {
@@ -71,8 +71,8 @@ Config.map.viewOptions = {
     code: 'EPSG:21781',
     extent: Config.map.extent
   }),
-  center: [660000, 190000],
-  zoom: 2
+  center: [692000, 252000],
+  zoom: 4
 };
 
 Config.map.wmsParams = {
@@ -83,5 +83,5 @@ Config.map.wmsParams = {
 Config.map.useTiledBackgroundWMS = true;
 
 Config.search = {};
-Config.search.queryPostfix = "GL";
+Config.search.queryPostfix = "ZH";
 Config.search.services = "cities,swissnames,districts,cantons,postalcodes"; // 'parcel,address'

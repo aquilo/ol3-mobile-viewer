@@ -16,6 +16,9 @@ Search.queryPostfix = Config.search.queryPostfix;
 // callback with search result features
 Search.callback = null;
 
+// callback with search result features
+Search.services = Config.search.services;
+
 /**
  * submit search query
  */
@@ -43,7 +46,7 @@ Search.parseSearchParams = function(searchParams) {
   // append query postfix
   var query = $.trim(searchParams) + " " + Search.queryPostfix;
   return {
-    services: 'swissnames', // FIXME: use 'address' if available
+    services: Search.services, // FIXME: use 'address' if available
     query: query
   };
 }
